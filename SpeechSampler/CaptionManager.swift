@@ -59,7 +59,7 @@ final class CaptionManager: NSObject, ObservableObject {
 
     // Configure the audio session for the app.
     let audioSession = AVAudioSession.sharedInstance()
-    try audioSession.setCategory(.record, mode: .measure　ment, options: .duckOthers)
+    try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
     try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
     let inputNode = audioEngine.inputNode
 
