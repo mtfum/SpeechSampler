@@ -26,6 +26,7 @@
 		2635BE2F23944A2D00DA8793 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2635BE3123944A2D00DA8793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2635BE38239454F600DA8793 /* CaptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionManager.swift; sourceTree = "<group>"; };
+		2635BE3A2394725F00DA8793 /* SpeechSampler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeechSampler.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		2635BE2223944A2A00DA8793 /* SpeechSampler */ = {
 			isa = PBXGroup;
 			children = (
+				2635BE3A2394725F00DA8793 /* SpeechSampler.entitlements */,
 				2635BE2323944A2A00DA8793 /* AppDelegate.swift */,
 				2635BE2523944A2A00DA8793 /* SceneDelegate.swift */,
 				2635BE2723944A2A00DA8793 /* ContentView.swift */,
@@ -288,7 +290,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SpeechSampler/SpeechSampler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpeechSampler/Preview Content\"";
 				DEVELOPMENT_TEAM = GCXLS66975;
 				ENABLE_PREVIEWS = YES;
@@ -299,6 +303,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = work.mtfum.SpeechSampler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -308,7 +313,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SpeechSampler/SpeechSampler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpeechSampler/Preview Content\"";
 				DEVELOPMENT_TEAM = GCXLS66975;
 				ENABLE_PREVIEWS = YES;
@@ -319,6 +326,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = work.mtfum.SpeechSampler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

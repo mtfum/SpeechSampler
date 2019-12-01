@@ -59,7 +59,7 @@ final class CaptionManager: NSObject, ObservableObject {
 
     // Configure the audio session for the app.
     let audioSession = AVAudioSession.sharedInstance()
-    try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+    try audioSession.setCategory(.record, mode: .measure　ment, options: .duckOthers)
     try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
     let inputNode = audioEngine.inputNode
 
@@ -69,7 +69,7 @@ final class CaptionManager: NSObject, ObservableObject {
     recognitionRequest.shouldReportPartialResults = true
 
     if speechRecognizer.supportsOnDeviceRecognition {
-      recognitionRequest.requiresOnDeviceRecognition = true
+//      recognitionRequest.requiresOnDeviceRecognition = true
     }
 
     // Create a recognition task for the speech recognition session.
@@ -82,6 +82,24 @@ final class CaptionManager: NSObject, ObservableObject {
         self.caption = result.bestTranscription.formattedString
         isFinal = result.isFinal
         print("Text: \(result.bestTranscription.formattedString)")
+
+        let formattedString = result.bestTranscription.formattedString
+        let speakingRate = result.bestTranscription.speakingRate
+        let averagePauseDuration = result.bestTranscription.averagePauseDuration
+
+        print(formattedString, speakingRate, averagePauseDuration)
+
+        for segment in result.bestTranscription.segments {
+          let jitter = segment.voiceAnalytics?.jitter.acousticFeatureValuePerFrame
+          let shimmer = segment.voiceAnalytics?.shimmer.acousticFeatureValuePerFrame
+          let pitch = segment.voiceAnalytics?.pitch.acousticFeatureValuePerFrame
+          let voicing = segment.voiceAnalytics?.voicing.acousticFeatureValuePerFrame
+
+          print("jitter:", jitter,
+                "\nshimmer:", shimmer,
+                "\n voicing:", voicing,
+                "\npitch:",pitch)
+        }
       }
 
       if error != nil || isFinal {
