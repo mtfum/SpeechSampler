@@ -9,13 +9,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
+
+  @State var displayingText: String = ""
+
+  @ObservedObject var capManager = CaptionManager()
+
+  var body: some View {
+    VStack(spacing: 24) {
+      Text(capManager.caption)
+      Spacer()
+      Button(capManager.recordButtonText) {
+        self.capManager.switchRecording()
+      }
     }
+    .padding()
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
