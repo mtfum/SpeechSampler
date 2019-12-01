@@ -21,6 +21,7 @@ struct ContentView: View {
       Button(capManager.recordButtonText) {
         self.capManager.switchRecording()
       }
+      .disabled(!self.capManager.isEnabledRecordButton)
     }
     .padding()
   }

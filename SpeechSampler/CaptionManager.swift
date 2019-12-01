@@ -30,8 +30,7 @@ final class CaptionManager: NSObject, ObservableObject {
         switch authStatus {
         case .authorized:
           self.isEnabledRecordButton = true
-          self.recordButtonText =  "Start Recording"
-          try? self.startRecording()
+          self.recordButtonText = "Start Recording"
         case .denied:
           self.isEnabledRecordButton = false
           self.recordButtonText = "User denied access to speech recognition"
@@ -69,9 +68,8 @@ final class CaptionManager: NSObject, ObservableObject {
     guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object") }
     recognitionRequest.shouldReportPartialResults = true
 
-    // Keep speech recognition data on device
-    if #available(iOS 13, *) {
-      recognitionRequest.requiresOnDeviceRecognition = false
+    if speechRecognizer.supportsOnDeviceRecognition {
+      recognitionRequest.requiresOnDeviceRecognition = true
     }
 
     // Create a recognition task for the speech recognition session.
