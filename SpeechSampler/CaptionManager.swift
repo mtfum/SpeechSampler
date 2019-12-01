@@ -69,7 +69,7 @@ final class CaptionManager: NSObject, ObservableObject {
     recognitionRequest.shouldReportPartialResults = true
 
     if speechRecognizer.supportsOnDeviceRecognition {
-//      recognitionRequest.requiresOnDeviceRecognition = true
+      recognitionRequest.requiresOnDeviceRecognition = true
     }
 
     // Create a recognition task for the speech recognition session.
